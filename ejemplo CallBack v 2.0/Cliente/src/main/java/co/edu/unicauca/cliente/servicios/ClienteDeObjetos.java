@@ -13,8 +13,7 @@ public class ClienteDeObjetos {
             ControladorServidorChatInt servidor;
             int numPuertoRMIRegistry = 0;
             String direccionIpRMIRegistry = "";
-            System.out.println("Cual es el la dirección ip donde se encuentra  el rmiregistry ");
-            direccionIpRMIRegistry = UtilidadesConsola.leerCadena();
+            direccionIpRMIRegistry = UtilidadesConsola.leerCadena("Cual es el la dirección ip donde se encuentra  el rmiregistry ");
             System.out.println("Cual es el número de puerto por el cual escucha el rmiregistry ");
             numPuertoRMIRegistry = UtilidadesConsola.leerEntero();
 
@@ -26,8 +25,7 @@ public class ClienteDeObjetos {
             Boolean respRegistro = false;
             String nickname = "";
             while (!respRegistro) {
-                System.out.println("Ingrese su nickname: ");
-                nickname = UtilidadesConsola.leerCadena();
+                nickname = UtilidadesConsola.leerCadena("Ingrese su nickname: ");
                 respRegistro = servidor.registrarReferenciaUsuario(objNuevoUsuario, nickname);
                 if (!respRegistro) {
                     System.out.println("Intente de nuevo con otro nickname: ");
@@ -39,10 +37,11 @@ public class ClienteDeObjetos {
                 System.out.println("1. Enviar mensaje");
                 System.out.println("2. Listar usuarios conectados");
                 System.out.println("3. Salir");
+                System.out.println("Digite la opcion: ");
+                opcion = UtilidadesConsola.leerEntero();
                 switch (opcion) {
                     case 1:
-                        System.out.println("Digite el mensaje a enviar al servidor: ");
-                        String mensaje = UtilidadesConsola.leerCadena();
+                        String mensaje = UtilidadesConsola.leerCadena("Digite el mensaje a enviar al servidor: ");
                         servidor.enviarMensaje(mensaje);
                         
                         break;

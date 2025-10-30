@@ -32,7 +32,7 @@ public class UtilidadesConsola
     
     }
 	
-	public static String leerCadena()
+	public static String leerCadena(String mensaje)
     {
     	String linea = "";
     	boolean valido = false;
@@ -40,7 +40,7 @@ public class UtilidadesConsola
     	{
     		try
     		{
-                System.out.println("Ingrese la opcion: ");
+                System.out.println(mensaje);
                 BufferedReader br = new BufferedReader(new
                 InputStreamReader(System.in));
                 linea = br.readLine();

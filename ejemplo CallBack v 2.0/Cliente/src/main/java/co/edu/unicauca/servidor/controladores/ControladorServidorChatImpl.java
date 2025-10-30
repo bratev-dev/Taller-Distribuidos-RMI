@@ -16,8 +16,16 @@ public class ControladorServidorChatImpl {
     }
 
     public boolean registrarReferenciaUsuario(UsuarioCllbckInt usuario, String nickname) throws RemoteException {
-        // TO DO
-        return false;
+        for (String nicknameHash : usuarios.keySet()) {
+            if (nicknameHash == nickname) {
+                System.out.println("El usuario " + nickname+" ya existe.");
+                return false; // Nickname ya existe
+            }
+        }
+        usuarios.put(nickname, usuario);
+        notificarUsuarios("El usuario " + nickname + " se ha conectado al chat");
+
+        return true;
     }
 
     public void enviarMensaje(String mensaje) throws RemoteException {
